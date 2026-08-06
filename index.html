@@ -2,7 +2,7 @@
 <html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Khoirul Anam — Digital Creative Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,21 +33,34 @@
       <svg class="moon-only" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="moon-shape" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
       <svg class="sun-only" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;"><circle cx="12" cy="12" r="4.2"/><path class="sun-ray" d="M12 2v2.4M12 19.6V22M4.2 12H2M22 12h-2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
     </button>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navDrawer">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="nav-overlay" id="navOverlay"></div>
-<nav class="nav-drawer" id="navDrawer">
-  <a href="#home" data-close><span class="num">01</span>Home</a>
-  <a href="#about" data-close><span class="num">02</span>About</a>
-  <a href="#skills" data-close><span class="num">03</span>Skills</a>
-  <a href="#experience" data-close><span class="num">04</span>Experience</a>
-  <a href="#project" data-close><span class="num">05</span>Project</a>
-  <a href="#certificate" data-close><span class="num">06</span>Certificate</a>
-  <a href="#contact" data-close><span class="num">07</span>Contact</a>
+<nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <div class="nav-drawer-head">
+    <div class="brand"><span class="dot"></span>By<span class="mono" style="color:var(--text-muted);font-weight:400;">iyngg</span></div>
+    <button class="modal-close nav-drawer-close" id="navDrawerClose" aria-label="Tutup menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="nav-drawer-links">
+    <a href="#home" data-close><span class="num">01</span>Home</a>
+    <a href="#about" data-close><span class="num">02</span>About</a>
+    <a href="#skills" data-close><span class="num">03</span>Skills</a>
+    <a href="#experience" data-close><span class="num">04</span>Experience</a>
+    <a href="#project" data-close><span class="num">05</span>Project</a>
+    <a href="#certificate" data-close><span class="num">06</span>Certificate</a>
+    <a href="#contact" data-close><span class="num">07</span>Contact</a>
+  </div>
+  <div class="nav-drawer-foot">
+    <a class="nav-drawer-social" href="https://wa.me/6285142273877" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="nav-drawer-social" href="https://instagram.com/iynnggg_" target="_blank" rel="noopener">Instagram</a>
+    <a class="nav-drawer-social" href="https://www.tiktok.com/@iyyngg_" target="_blank" rel="noopener">TikTok</a>
+  </div>
 </nav>
 
 <!-- ============ HERO / HOME ============ -->
@@ -190,7 +203,6 @@
       </div>
       <div class="album-slot">
         <img src="foto 5.jpg.jpeg" alt="Culture Album 5">
-      </div> 
       </div>
     </div>
   </div>
@@ -342,8 +354,10 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- ============ CERTIFICATE ============ -->
+<!-- ============ CERTIFICATE ============ -->
 <section id="certificate">
   <div class="wrap">
     <div class="section-head">
@@ -361,6 +375,18 @@
           Lihat Detail Pencapaian
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
+      </div>
+    </div>
+
+    <div class="thanks-box">
+      <h3>Thank You for Visiting My Digital Website</h3>
+      <p>TUNGGU PROJECT SAYA SELANJUTNYA</p>
+    </div>
+
+    <div class="logo-project">
+      <div class="logo-project-title">LOGO PROJECT</div>
+      <div class="circle-slot">
+        <img src="logo 1.jpg.jpeg" alt="Logo Project">
       </div>
     </div>
   </div>
@@ -388,21 +414,6 @@
     </p>
   </div>
 </div>
-
-    <div class="thanks-box">
-      <h3>Thank You for Visiting My Digital Website</h3>
-      <p>TUNGGU PROJECT SAYA SELANJUTNYA</p>
-    </div>
-
-    <div class="logo-project">
-      <div class="logo-project-title">LOGO PROJECT</div>
-      <div class="circle-slot">
-        <img src="logo 1.jpg.jpeg" alt="Logo Project">
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ============ CONTACT ============ -->
 <section id="contact">
