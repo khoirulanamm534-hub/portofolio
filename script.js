@@ -19,28 +19,55 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   onScroll();
 
+  // ---------- body scroll lock helper (nav drawer + modals on mobile) ----------
+  let lockCount = 0;
+  function lockScroll() {
+    lockCount++;
+    document.body.classList.add('no-scroll');
+  }
+  function unlockScroll() {
+    lockCount = Math.max(0, lockCount - 1);
+    if (lockCount === 0) document.body.classList.remove('no-scroll');
+  }
+
   // ---------- hamburger nav ----------
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navOverlay = document.getElementById('navOverlay');
   const navDrawer = document.getElementById('navDrawer');
+  const navDrawerClose = document.getElementById('navDrawerClose');
+  let navOpen = false;
   function toggleNav(force) {
     if (!navDrawer || !navOverlay || !hamburgerBtn) return;
     const open = force !== undefined ? force : !navDrawer.classList.contains('active');
+    if (open === navOpen) return;
+    navOpen = open;
     navDrawer.classList.toggle('active', open);
     navOverlay.classList.toggle('active', open);
     hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', String(open));
+    navDrawer.setAttribute('aria-hidden', String(!open));
+    if (open) lockScroll(); else unlockScroll();
   }
   if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => toggleNav());
+  if (navDrawerClose) navDrawerClose.addEventListener('click', () => toggleNav(false));
   if (navOverlay) navOverlay.addEventListener('click', () => toggleNav(false));
-  if (navDrawer) document.querySelectorAll('.nav-drawer a').forEach(a => a.addEventListener('click', () => toggleNav(false)));
+  if (navDrawer) document.querySelectorAll('.nav-drawer a[data-close]').forEach(a => a.addEventListener('click', () => toggleNav(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleNav(false); });
 
-  // ---------- experience detail modal ----------
-  const detailBtn = document.getElementById('detailBtn');
-  const modalOverlay = document.getElementById('modalOverlay');
-  const modalClose = document.getElementById('modalClose');
-  if (detailBtn && modalOverlay) detailBtn.addEventListener('click', () => modalOverlay.classList.add('active'));
-  if (modalClose && modalOverlay) modalClose.addEventListener('click', () => modalOverlay.classList.remove('active'));
-  if (modalOverlay) modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) modalOverlay.classList.remove('active'); });
+  // ---------- generic modal wiring (experience / certificate / album) ----------
+  function wireModal(btnId, overlayId, closeId) {
+    const btn = document.getElementById(btnId);
+    const overlay = document.getElementById(overlayId);
+    const closeBtn = document.getElementById(closeId);
+    if (!overlay) return;
+    if (btn) btn.addEventListener('click', () => { overlay.classList.add('active'); lockScroll(); });
+    if (closeBtn) closeBtn.addEventListener('click', () => { overlay.classList.remove('active'); unlockScroll(); });
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) { overlay.classList.remove('active'); unlockScroll(); } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) { overlay.classList.remove('active'); unlockScroll(); } });
+  }
+  wireModal('detailBtn', 'modalOverlay', 'modalClose');
+  wireModal('certDetailBtn', 'certModalOverlay', 'certModalClose');
+  wireModal('albumDetailBtn', 'albumModalOverlay', 'albumModalClose');
 
   // ---------- network node background (hero signature) ----------
   const canvas = document.getElementById('netCanvas');
@@ -56,8 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.height = hero.offsetHeight;
     }
     function initNodes() {
+      const isSmall = canvas.width < 640;
       const count = Math.floor((canvas.width * canvas.height) / 32000);
-      nodes = Array.from({ length: Math.min(count, 55) }, () => ({
+      nodes = Array.from({ length: Math.min(count, isSmall ? 30 : 55) }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.25,
@@ -100,7 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     resizeCanvas(); initNodes();
-    window.addEventListener('resize', () => { resizeCanvas(); initNodes(); });
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { resizeCanvas(); initNodes(); }, 150);
+    });
     draw();
   }
 
@@ -259,39 +291,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // cleanup placeholder (optional)
-  window.addEventListener('beforeunload', () => { /* nothing heavy to clean */ });
-});
-
-const certDetailBtn   = document.getElementById('certDetailBtn');
-const certModalOverlay = document.getElementById('certModalOverlay');
-const certModalClose  = document.getElementById('certModalClose');
-
-certDetailBtn?.addEventListener('click', () => {
-  certModalOverlay.classList.add('active'); // ganti 'active' sesuai class yang dipakai modal experience
-});
-certModalClose?.addEventListener('click', () => {
-  certModalOverlay.classList.remove('active');
-});
-certModalOverlay?.addEventListener('click', (e) => {
-  if (e.target === certModalOverlay) certModalOverlay.classList.remove('active');
-});
-
-/* ===== CUSTOM CURSOR (DESKTOP) + TOUCH TRAIL (HP) ===== */
-(function(){
+  // ---------- custom cursor (desktop) + touch trail (hp) ----------
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   const isTouch = window.matchMedia('(hover:none), (pointer:coarse)').matches;
 
-  if(!isTouch && dot && ring){
-    let mouseX=0, mouseY=0, ringX=0, ringY=0;
+  if (!isTouch && dot && ring) {
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-    window.addEventListener('mousemove', (e)=>{
+    window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX; mouseY = e.clientY;
       dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
     });
 
-    function animateRing(){
+    function animateRing() {
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
       ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
@@ -302,42 +315,29 @@ certModalOverlay?.addEventListener('click', (e) => {
     const hoverTargets = document.querySelectorAll(
       'a, button, .icon-btn, .hamburger, .btn-primary, .btn-outline, .skill-card, .edu-card, .contact-card, .ai-chip, .project-card, img'
     );
-    hoverTargets.forEach(el=>{
-      el.addEventListener('mouseenter', ()=>document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', ()=>document.body.classList.remove('cursor-hover'));
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
   }
 
-  if(isTouch){
+  if (isTouch) {
     let lastTime = 0;
-    window.addEventListener('touchmove', (e)=>{
+    window.addEventListener('touchmove', (e) => {
       const now = Date.now();
-      if(now - lastTime < 40) return; // throttle biar ringan di HP
+      if (now - lastTime < 40) return; // throttle biar ringan di HP
       lastTime = now;
       const touch = e.touches[0];
-      if(!touch) return;
+      if (!touch) return;
       const rip = document.createElement('div');
       rip.className = 'touch-ripple';
       rip.style.left = touch.clientX + 'px';
       rip.style.top = touch.clientY + 'px';
       document.body.appendChild(rip);
-      setTimeout(()=>rip.remove(), 650);
-    }, {passive:true});
+      setTimeout(() => rip.remove(), 650);
+    }, { passive: true });
   }
-})();
 
-const albumDetailBtn = document.getElementById('albumDetailBtn');
-const albumModalOverlay = document.getElementById('albumModalOverlay');
-const albumModalClose = document.getElementById('albumModalClose');
-
-if (albumDetailBtn && albumModalOverlay) {
-  albumDetailBtn.addEventListener('click', () => {
-    albumModalOverlay.classList.add('active'); // sesuaikan dengan class yang dipakai modal lain (misal: 'show')
-  });
-  albumModalClose.addEventListener('click', () => {
-    albumModalOverlay.classList.remove('active');
-  });
-  albumModalOverlay.addEventListener('click', (e) => {
-    if (e.target === albumModalOverlay) albumModalOverlay.classList.remove('active');
-  });
-}
+  // cleanup placeholder (optional)
+  window.addEventListener('beforeunload', () => { /* nothing heavy to clean */ });
+});
