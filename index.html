@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khoirul Anam — Digital Creative Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<!-- ============ SCREEN LOADER ============ -->
+<div class="loader-screen" id="loaderScreen">
+  <div class="loader-bg"></div>
+  <div class="loader-inner">
+    <div class="loader-brand"><span class="dot"></span>By<span class="mono" style="color:var(--text-muted);font-weight:400;">iyngg</span></div>
+    <h1 class="loader-text" id="loaderText"><span id="loaderTyped"></span><span class="loader-cursor"></span></h1>
+    <button class="loader-enter" id="loaderEnterBtn">
+      Masuk
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <div class="loader-hint">Klik untuk masuk</div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="brand"><span class="dot"></span>By<span class="mono" style="color:var(--text-muted);font-weight:400;">iyngg</span></div>
+  <div class="header-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Ganti mode gelap/terang">
+      <svg class="moon-only" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="moon-shape" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      <svg class="sun-only" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;"><circle cx="12" cy="12" r="4.2"/><path class="sun-ray" d="M12 2v2.4M12 19.6V22M4.2 12H2M22 12h-2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6"/></svg>
+    </button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="#home" data-close><span class="num">01</span>Home</a>
+  <a href="#about" data-close><span class="num">02</span>About</a>
+  <a href="#skills" data-close><span class="num">03</span>Skills</a>
+  <a href="#experience" data-close><span class="num">04</span>Experience</a>
+  <a href="#project" data-close><span class="num">05</span>Project</a>
+  <a href="#certificate" data-close><span class="num">06</span>Certificate</a>
+  <a href="#contact" data-close><span class="num">07</span>Contact</a>
+</nav>
+
+<!-- ============ HERO / HOME ============ -->
+<section class="hero" id="home" style="padding-top:0;">
+  <canvas id="netCanvas"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Digital Creative Developer</div>
+      <div class="hero-greet">Halo, saya</div>
+      <h1 class="hero-name">Khoirul Anam</h1>
+      <div class="tech-line">Web <b>·</b> UI/UX <b>·</b> HTML <b>·</b> CSS <b>·</b> JS <b>·</b> Tailwind CSS</div>
+      <a href="#contact" class="btn-primary">
+        Contact Me
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="photo-frame">
+      <div class="photo-ring"></div>
+      <img src="foto profil.jpg/foto profil2.jpg.jpeg" alt="Foto profil Khoirul Anam">
+      <div class="photo-badge"><i></i>Available for freelance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">02 — About</div>
+      <h2 class="section-title">Tentang Saya</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="edu-card">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5Z"/><path d="M6 11.5v4.7c0 1 2.7 2.8 6 2.8s6-1.8 6-2.8v-4.7"/><path d="M22 9.5v6"/></svg>
+          </div>
+          <div>
+            <h4>SMK Pawyatan Daha 1</h4>
+            <p>Siswa — Rekayasa Perangkat Lunak / Jaringan</p>
+          </div>
+        </div>
+
+        <div class="node-divider" style="margin:30px 0;"><span></span><i></i><span></span></div>
+
+        <div class="edu-card" style="background:transparent;border:none;box-shadow:none;padding:0;">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <div>
+            <h4>Fokus Belajar</h4>
+            <p>Jaringan, sistem komputer, dan pengembangan web modern</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p>Saya adalah <b>Creative Teknologi</b> yang menggabungkan kemampuan teknis dengan pengembangan web dengan sensibilitas modern.</p>
+        <p>Ketertarikan saya bermula dari dunia jaringan dan perangkat keras, lalu berkembang ke arah pengembangan web dan antarmuka digital. Bagi saya, teknologi paling bermakna ketika sisi teknis dan sisi kreatif berjalan beriringan — sebuah sistem yang bekerja dengan baik sekaligus enak dipandang.</p>
+        <p>Saya senang bereksperimen dengan alat baru, memperbaiki hal-hal yang rusak, dan terus belajar hal-hal di luar zona nyaman saya, baik itu merapikan kabel fiber optik maupun menata baris kode.</p>
+
+        <div class="ai-title">AI yang saya pakai</div>
+        <div class="ai-grid">
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="Claude AI logo">
+              <img src="AI.jpg/claude.jpg.jpeg" alt="Claude AI" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>Claude AI</span>
+          </div>
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="DeepSeek logo">
+              <img src="AI.jpg/deepseek.jpg.jpeg" alt="DeepSeek" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>DeepSeek</span>
+          </div>
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="ChatGPT logo">
+              <img src="AI.jpg/chatgpt.jpg.jpeg" alt="ChatGPT" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>ChatGPT</span>
+          </div>
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="GitHub Copilot logo">
+              <img src="AI.jpg/github.jpg.jpeg" alt="GitHub Copilot" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>GitHub Copilot</span>
+          </div>
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="Gemini AI logo">
+              <img src="AI.jpg/gemini.jpg.jpeg" alt="Gemini AI" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>Gemini AI</span>
+          </div>
+          <div class="ai-chip">
+            <div class="ai-badge" role="img" aria-label="Blackbox AI logo">
+              <img src="AI.jpg/blaxbock.jpg.jpeg" alt="Blackbox AI" width="42" height="42" decoding="async" loading="lazy">
+            </div>
+            <span>Blackbox AI</span>
+          </div>
+        </div>
+
+        <!-- ============ CULTURE ALBUM TEASER ============ -->
+        <div class="culture-album-teaser">
+          <h3 class="graffiti-title">CULTURE<span>ALBUM</span></h3>
+          <button class="album-link" id="albumDetailBtn">
+            Lihat Album
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+      </div><!-- /.about-text -->
+    </div><!-- /.about-grid -->
+  </div><!-- /.wrap -->
+</section><!-- /#about -->
+
+<!-- Modal Gallery Culture Album -->
+<div class="modal-overlay" id="albumModalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <h3>Culture Album</h3>
+        <p>Bukan soal seberapa mewah tempatnya, tapi ambience dan vibes-nya yang bikin tenang.</p>
+      </div>
+      <button class="modal-close" id="albumModalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="album-stack">
+      <div class="album-slot">
+        <img src="foto album.jpg/foto1.jpg.jpeg" alt="Culture Album 1">
+      </div>
+      <div class="album-slot">
+        <img src="foto album.jpg/foto 2.jpg.jpeg" alt="Culture Album 2">
+      </div>
+      <div class="album-slot">
+        <img src="foto album.jpg/foto 3.jpg.jpeg" alt="Culture Album 3">
+      </div>
+      <div class="album-slot">
+        <img src="foto album.jpg/foto 4.jpg.jpeg" alt="Culture Album 4">
+      </div>
+      <div class="album-slot">
+        <img src="foto album.jpg/foto 5.jpg.jpeg" alt="Culture Album 5">
+      </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">03 — Skills</div>
+      <h2 class="section-title">Skills</h2>
+      <p class="section-lead">Kombinasi kemampuan teknis di sisi jaringan &amp; perangkat keras, serta pengembangan web.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19.2" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <h4>Maintenance WiFi</h4>
+        <p>Instalasi, konfigurasi, dan perbaikan jaringan nirkabel.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><path d="M7 8h4M7 11h6"/></svg></div>
+        <h4>Rakit PC</h4>
+        <p>Perakitan dan troubleshooting komponen komputer.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13.5 6.5l-3 11"/></svg></div>
+        <h4>Software Engineering</h4>
+        <p>Merancang dan membangun perangkat lunak sederhana.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h5l2-5 4 10 2-5h5"/></svg></div>
+        <h4>Fiber Optik</h4>
+        <p>Splicing, terminasi, dan pengukuran kabel fiber optik.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="14" rx="2"/><path d="M3 8.5h18M7 13h6M7 15.5h4"/></svg></div>
+        <h4>Web Portofolio</h4>
+        <p>Membangun tampilan web personal yang rapi dan modern.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3c-.7 1.3-.9 2.3-.5 3.6C7 7.6 6.2 9 6.2 11c0 1.4.5 2 .3 3.2C5.6 15 5 16.8 5 18.3 6.6 20 9 21 12 21s5.4-1 7-2.7c0-1.5-.6-3.3-1.5-4.1-.2-1.2.3-1.8.3-3.2 0-2-.8-3.4-2.3-4.4.4-1.3.2-2.3-.5-3.6"/><path d="M9.5 12.5c.5 1 1.5 1.5 2.5 1.5s2-.5 2.5-1.5"/></svg></div>
+        <h4>Linux RedHat</h4>
+        <p>Administrasi sistem dan command line berbasis Linux.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04 — Experience</div>
+      <h2 class="section-title">Moments During My Internship</h2>
+      <p class="section-lead">Praktik Kerja Lapangan (PKL) di dunia industri teknologi.</p>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-ticker">PKL · TAHUN AJARAN AKTIF</div>
+        <div class="exp-name">Mitra Mandiri Computer</div>
+        <div class="exp-role">Praktik Kerja Lapangan — Teknisi Jaringan &amp; Komputer</div>
+        <div class="exp-stats">
+          <div><b class="stat-up">+70%</b><span>Skill jaringan</span></div>
+          <div><b class="stat-up">+80%</b><span>Perbaikan PC</span></div>
+          <div><b class="stat-up">+90%</b><span>Kerja tim</span></div>
+        </div>
+        <button class="btn-outline" id="detailBtn">
+          Lihat Detail
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="chart-box">
+        <svg viewBox="0 0 400 180" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#38D48A" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#38D48A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <polyline points="0,150 40,140 60,120 90,130 120,95 150,105 180,70 210,80 240,50 270,60 300,30 330,42 360,18 400,25" fill="none" stroke="#38D48A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="0,150 40,140 60,120 90,130 120,95 150,105 180,70 210,80 240,50 270,60 300,30 330,42 360,18 400,25 400,180 0,180" fill="url(#chartFill)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Gallery -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <h3>Mitra Mandiri Computer</h3>
+        <p>Moments during my internship — dokumentasi kegiatan PKL</p>
+      </div>
+      <button class="modal-close" id="modalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="gallery-grid">
+      <img class="wide" src="foto pkl.jpg/foto pkl4.jpg.jpeg" alt="Dokumentasi PKL 1">
+      <img src="foto pkl.jpg/foto pkl1.jpg.jpeg" alt="Dokumentasi PKL 2">
+      <img src="foto pkl.jpg/foto pkl2.jpg.jpeg" alt="Dokumentasi PKL 3">
+      <img src="foto pkl.jpg/foto pkl3.jpg.jpeg" alt="Dokumentasi PKL 4">
+      <img src="foto pkl.jpg/foto pkl5.jpg.jpeg" alt="Dokumentasi PKL 5">
+      <img src="foto pkl.jpg/foto pkl6.jpg.jpeg" alt="Dokumentasi PKL 6">
+      <img src="foto pkl.jpg/foto pkl7.jpg.jpeg" alt="Dokumentasi PKL 7">
+      <img src="foto pkl.jpg/foto pkl8.jpg.jpeg" alt="Dokumentasi PKL 8">
+      <img src="foto pkl.jpg/foto pkl9.jpg.jpeg" alt="Dokumentasi PKL 9">
+      <img src="foto pkl.jpg/foto pkl10.jpg.jpeg" alt="Dokumentasi PKL 10">
+      <img src="foto pkl.jpg/foto pkl11.jpg.jpeg" alt="Dokumentasi PKL 11">
+      <img src="foto pkl.jpg/foto pkl12.jpg.jpeg" alt="Dokumentasi PKL 12">
+      <img src="foto pkl.jpg/foto pkl13.jpg.jpeg" alt="Dokumentasi PKL 13">
+      <img src="foto pkl.jpg/foto pkl14.jpg.jpeg" alt="Dokumentasi PKL 14">
+      <img src="foto pkl.jpg/foto pkl15.jpg.jpeg" alt="Dokumentasi PKL 15">
+      <img src="foto pkl.jpg/foto pkl16.jpg.jpeg" alt="Dokumentasi PKL 16">
+      <img src="foto pkl.jpg/foto pkl17.jpg.jpeg" alt="Dokumentasi PKL 17">
+      <img src="foto pkl.jpg/foto pkl18.jpg.jpeg" alt="Dokumentasi PKL 18">
+      <img src="foto pkl.jpg/foto pkl19.jpg.jpeg" alt="Dokumentasi PKL 19">
+      <img src="foto pkl.jpg/foto pkl20.jpg.jpeg" alt="Dokumentasi PKL 20">
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROJECT ============ -->
+ <section id="project">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">05 — Project</div>
+      <h2 class="section-title">Simple Projects</h2>
+      <p class="section-lead">Contoh Project Kecil Saya</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="foto project.jpg/project 1.jpg.jpeg" alt="Project One">
+        <div class="project-info">
+          <span>WEB · PORTOFOLIO</span>
+          <h4>Personal Portfolio Site</h4>
+          <p>A clean, responsive personal website built with HTML, CSS, and JavaScript</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="foto project.jpg/project 2.jpg.jpeg" alt="Project Two">
+        <div class="project-info">
+          <span>EDITING · CODING</span>
+          <h4>Cooperation</h4>
+          <p>A collaborative project combining frontend development and video editing workflows seamlessly</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ CERTIFICATE ============ -->
+<section id="certificate">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">06 — Certificate</div>
+      <h2 class="section-title">My Achievements</h2>
+      <p class="section-lead">Kumpulan sertifikat dan pencapaian penting yang telah saya raih</p>
+    </div>
+
+    <div class="exp-card exp-card--single">
+      <div>
+        <div class="exp-ticker">CERTIFICATE · </div>
+        <div class="exp-name">Achieved with Consistency</div>
+        <div class="exp-role">Certificates from training, courses, and competitions I've completed along the way.</div>
+        <button class="btn-outline" id="certDetailBtn">
+          Lihat Detail Pencapaian
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Gallery Certificate -->
+<div class="modal-overlay" id="certModalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <h3>My Certificates</h3>
+        <p>Documentation of certificates & achievements</p>
+      </div>
+      <button class="modal-close" id="certModalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="gallery-grid">
+      <img src="CERTIFICATE.JPG/linux.jpg.jpeg" alt="Certificate 1">
+      <img class="tall" src="CERTIFICATE.JPG/mtcna.jpg.jpeg" alt="Certificate MTCNA">
+      <img src="CERTIFICATE.JPG/wirelles.jpg.jpeg" alt="Certificate 3">
+    </div>
+    <p class="cert-caption" contenteditable="true" spellcheck="false">
+      "Dunia programming itu lucu. Tadi siang rasanya mau menyerah dan ganti profesi jadi tukang kebun, tapi malam ini begitu kodenya jalan sesuai rencana, rasanya langsung berubah jadi manusia paling genius di bumi. It finally works perfectly!"
+    </p>
+  </div>
+</div>
+
+    <div class="thanks-box">
+      <h3>Thank You for Visiting My Digital Website</h3>
+      <p>TUNGGU PROJECT SAYA SELANJUTNYA</p>
+    </div>
+
+    <div class="logo-project">
+      <div class="logo-project-title">LOGO PROJECT</div>
+      <div class="circle-slot">
+        <img src="logo.jpg/logo 1.jpg.jpeg" alt="Logo Project">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">07 — Contact</div>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-lead">Ada proyek atau ingin ngobrol bisa hubungi saya di medsos bawah ini ya</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="https://wa.me/6285142273877" target="_blank" rel="noopener">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3.5-6.6"/><path d="M20 4v5h-5"/><path d="M8.5 10c.3 2 2 3.7 4 4l1-1.3c.3-.4.9-.5 1.3-.2l1.6 1c.3.2.4.6.2.9-.6 1-2 1.8-3.4 1.5-2.8-.6-5-2.8-5.6-5.6-.3-1.4.5-2.8 1.5-3.4.3-.2.7-.1.9.2l1 1.6c.3.4.2 1-.2 1.3L8.5 10Z"/></svg></div>
+        <h4>WHATSAPP</h4>
+        <p>+62 851 4227 3877</p>
+        <span class="sub">Chat langsung</span>
+      </a>
+      <a class="contact-card" href="https://instagram.com/iynnggg_" target="_blank" rel="noopener">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <h4>INSTAGRAM</h4>
+        <p>iynnggg_</p>
+        <span class="sub">Follow &amp; DM</span>
+      </a>
+      <a class="contact-card" href="https://www.tiktok.com/@iyyngg_" target="_blank" rel="noopener">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M15 4c.4 2.4 2 4 4.5 4.3"/></svg></div>
+        <h4>TIKTOK</h4>
+        <p>Iyyngg_</p>
+        <span class="sub">Iyngg | Web Portofolio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 KHOIRUL ANAM — BUILT WITH HTML, CSS &amp; JAVASCRIPT
+</footer>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<script src="script.js"></script>
+
+<!-- ============ SCREEN LOADER SCRIPT ============ -->
+<script>
+(function(){
+  var teksLoader = "Welcome To My Profil Digital Saya";
+  var teksUcapan = "Selamat datang di portofolio saya, Khoirul Anam";
+
+  var loaderScreen = document.getElementById('loaderScreen');
+  var loaderTyped  = document.getElementById('loaderTyped');
+  var enterBtn     = document.getElementById('loaderEnterBtn');
+  var body         = document.body;
+
+  function ketik(i){
+    if(i <= teksLoader.length){
+      loaderTyped.textContent = teksLoader.slice(0, i);
+      setTimeout(function(){ ketik(i+1); }, 45);
+    }
+  }
+  ketik(0);
+
+  var sudahBicara = false; // penjaga supaya suara tidak diputar dua kali
+
+  function bicara(){
+    if(sudahBicara) return;
+    sudahBicara = true;
+
+    if(!('speechSynthesis' in window)) return;
+    speechSynthesis.cancel(); // pastikan tidak ada antrean ucapan sebelumnya
+
+    var ucapan = new SpeechSynthesisUtterance(teksUcapan);
+    ucapan.lang = 'id-ID';
+    ucapan.rate = 1;
+    ucapan.pitch = 1;
+
+    var pilih = function(){
+      speechSynthesis.onvoiceschanged = null; // lepas listener supaya tidak terpicu ulang
+      var suara = speechSynthesis.getVoices().filter(function(v){
+        return v.lang === 'id-ID' || v.lang === 'id_ID';
+      });
+
+      var kataKunciPerempuan = ['female','wanita','perempuan','woman','girl','gadis'];
+      var kataKunciLaki = ['male','pria','laki','man','boy','andika','ardi'];
+
+      // 1) Cari yang namanya eksplisit mengandung kata kunci perempuan
+      var pilihan = suara.find(function(v){
+        var nama = v.name.toLowerCase();
+        return kataKunciPerempuan.some(function(k){ return nama.indexOf(k) !== -1; });
+      });
+      if(pilihan){
+        ucapan.voice = pilihan;
+        ucapan.pitch = 1;
+      } else {
+        // 2) Chrome biasanya cuma punya satu suara "Google Bahasa Indonesia" tanpa
+        // varian gender, dan seringnya terdengar agak berat/netral. Naikkan pitch
+        // supaya terdengar lebih ringan/perempuan.
+        var pilihanNetral = suara.find(function(v){
+          var nama = v.name.toLowerCase();
+          return !kataKunciLaki.some(function(k){ return nama.indexOf(k) !== -1; });
+        });
+        if(pilihanNetral){
+          ucapan.voice = pilihanNetral;
+          ucapan.pitch = 1.35;
+        } else if(suara.length > 0){
+          // 3) Kalau semua opsi id-ID ternyata laki-laki, tetap pakai yang pertama
+          ucapan.voice = suara[0];
+          ucapan.pitch = 1.35;
+        } else {
+          ucapan.pitch = 1.35;
+        }
+      }
+
+      speechSynthesis.speak(ucapan);
+    };
+
+    if(speechSynthesis.getVoices().length > 0){ pilih(); }
+    else { speechSynthesis.onvoiceschanged = pilih; }
+  }
+
+  var sudahDiklik = false; // cegah klik ganda memicu suara dobel
+
+  enterBtn.addEventListener('click', function(){
+    if(sudahDiklik) return;
+    sudahDiklik = true;
+    enterBtn.disabled = true;
+
+    bicara();
+
+    loaderScreen.classList.add('loader-hide');
+    body.classList.remove('is-loading');
+    setTimeout(function(){
+      loaderScreen.remove();
+    }, 750);
+  });
+})();
+</script>
+
+</body>
+</html>
